@@ -16,16 +16,16 @@ namespace StackOverflow.Performance
 			Console.ReadKey();
 		}
 
-		readonly ICommand _action, _decorated;
+		readonly ICommand _direct, _decorated;
 		readonly string _message;
 
 		public Program() : this(new EmitMessage()) {}
 
-		public Program(ICommand action) : this(action, Decorate.Get(action), "Hello World!") {}
+		public Program(ICommand direct) : this(direct, Decorate.Get(direct), "Hello World!") {}
 
-		public Program(ICommand action, ICommand decorated, string message)
+		public Program(ICommand direct, ICommand decorated, string message)
 		{
-			_action    = action;
+			_direct    = direct;
 			_decorated = decorated;
 			_message = message;
 		}
@@ -33,7 +33,7 @@ namespace StackOverflow.Performance
 		[Benchmark]
 		public void Direct()
 		{
-			_action.Execute(_message);
+			_direct.Execute(_message);
 		}
 
 		[Benchmark]
