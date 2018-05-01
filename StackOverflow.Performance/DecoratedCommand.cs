@@ -1,4 +1,5 @@
-﻿namespace StackOverflow.Performance {
+﻿namespace StackOverflow.Performance
+{
 	sealed class DecoratedCommand : ICommand
 	{
 		readonly ICommand _command;

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace StackOverflow.Performance {
+namespace StackOverflow.Performance
+{
 	sealed class EmitMessage : ICommand
 	{
 		readonly Action<string> _emit;

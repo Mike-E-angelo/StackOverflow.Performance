@@ -6,18 +6,8 @@ namespace StackOverflow.Performance
 {
 	public class Program
 	{
-		static void Main()
-		{
-			// Writes out the stack trace from a decorated command:
-			Decorate.Get(new EmitMessage(Console.WriteLine))
-			        .Execute(null);
-
-			BenchmarkRunner.Run<Program>();
-			Console.ReadKey();
-		}
-
 		readonly ICommand _direct, _decorated;
-		readonly string _message;
+		readonly string   _message;
 
 		public Program() : this(new EmitMessage()) {}
 
@@ -27,7 +17,17 @@ namespace StackOverflow.Performance
 		{
 			_direct    = direct;
 			_decorated = decorated;
-			_message = message;
+			_message   = message;
+		}
+
+		static void Main()
+		{
+			// Writes out the stack trace from a decorated command:
+			Decorate.Get(new EmitMessage(Console.WriteLine))
+			        .Execute(null);
+
+			BenchmarkRunner.Run<Program>();
+			Console.ReadKey();
 		}
 
 		[Benchmark]

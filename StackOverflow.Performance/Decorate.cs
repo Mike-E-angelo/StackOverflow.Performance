@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 
-namespace StackOverflow.Performance {
+namespace StackOverflow.Performance
+{
 	static class Decorate
 	{
 		public static ICommand Get(ICommand parameter)
